@@ -1,6 +1,8 @@
 
-**Tag:** Cryptology, Mathematics, LaTeX.
+**Recent changes**: July 15, 2024
 
-**Emal:** yhlaozero2@163.com
+**Tag**: Cryptology, Mathematics, LaTeX.
+
+**Emal**: yhlaozero2@163.com
 
 > to be continued.
