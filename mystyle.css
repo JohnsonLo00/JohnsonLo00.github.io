@@ -23,14 +23,50 @@
     /*color: yellow;*/
 }
 
-body {
+/* ----------------- 通用：分割线 ----------------- */
+
+hr.line {
+  border: none;
+  border-top: 3px double gray;
+  color: gray;
+  height: 5px;
+}
+
+hr.bar {
+    width:80%;
+    margin:0 auto;
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+/* =========================================== */
+
+
+/* ----------------- body样式 ----------------- */
+
+body.homepage {
     /*设置背景插图*/
     /*background-image: url("./img/bgfig.png");*/
     /*设置渐变背景*/
-    background: linear-gradient(to right, #FC0, #F60)
+    /* background: linear-gradient(to right, #FC0, #F60) */
+    font-size: 18pt;
 }
 
-h1 {
+/* =========================================== */
+
+
+/* -------- 定制：homepage系列 -------- */
+
+.homepage-name {
     color: blue;
-    font-size: 50px;
 }
+
+.homepage-logo {
+    img {
+        width: 300px;
+        height: auto;
+    }
+}
+
+/* =================================== */
