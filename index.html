@@ -1,0 +1,228 @@
+<!-- 
+**Recent changes**: July 15, 2024
+
+**Tag**: Cryptology, Mathematics, LaTeX.
+
+**Emal**: yhlaozero2@163.com
+
+> to be continued. -->
+
+
+<!DOCTYPE html>
+
+<!--网页的header-->
+<html>
+    <!--头部信息设置-->
+    <head>
+        <link rel="stylesheet" type="text/css" href="mystyle.css" />
+        <title>project-name</title>
+    </head>
+    <body>
+        这是网页标题，且含背景图（但属于一块块拼接的那种）
+    </body>
+    <!--一级标题-->
+    <h1>一级标题</h1>
+
+    <!--二级标题-->
+    <h2>二级标题</h2>
+
+    <!--三级标题-->
+    <h3>三级标题</h3>
+
+    <!--四级标题-->
+    <h4>四级标题</h4>
+
+    <!--五级标题-->
+    <h5>五级标题</h5>
+
+    <!--六级标题-->
+    <h6>六级标题</h6>
+
+    <p>这是一个段落</p>
+    <p>这是另一个段落</p>
+    <p id="newnew">这是另一个带有锚点的段落</p>
+
+    <strong> 这是一个给字体加粗的标签 </strong></br>
+    <b> 这也是一个给字体加粗的标签 </b></br>
+    <em> 这是一个将字体变为斜体的标签 </em></br>
+    <i> 这也是一个将字体变为斜体的标签 </i></br>
+    <del> 这个标签可以给字体加上删除线 </del></br>
+    <s> 这个标签也可以给字体加上删除线 </s></br>
+    <ins> 这个标签可以给字体加上下划线 </ins></br>
+    <u> 这个标签也可以给字体加上下划线 </u></br>
+
+<!--插入图片-->
+<img src="./img/示例图片4.png" alt="加载出错了！"></br>
+
+<!--外部网页链接-->
+<p>
+    <a href="https://gitee.com/jhonson-lo">Gitee JL</a>
+</p>
+
+<!--外部网页链接，且在新窗口中打开-->
+<p>
+    <a href="https://gitee.com/jhonson-lo" target=_blank>Gitee JL（新窗口）</a>
+</p>
+
+<!--邮箱链接-->
+<p>
+    <a href="mailto:yhlaozero2@163.com">联系邮箱：yhlaozero2@163.com</a>
+</p>
+
+<!--内部html文件链接（相对路径）-->
+<p>
+    <a href="intro.html">跳转到介绍</a>
+</p>
+
+<!--下载内部文件-->
+<p>
+    <a href="./todownload/lshort-zh-cn.pdf">下载 lshort-zh-cn.pdf</a>
+</p>
+<!--锚点链接：可以快速定位到页面中的某个位置-->
+<p>
+    <a href="#newnew">去到带锚点的地方</a>
+</p>
+
+<!--
+[绘制表格]
+table标签：表示整个表格；
+-----
+参数：
+align：表格相对于周围元素的对齐方式(不是表格内部元素的对齐方式) 
+border：边框：1表示有边框(数字越大, 边框越粗)，"" 表示没边框；
+cellpadding：内容距离边框的距离，默认 1 像素；
+cellspacing：单元格之间的距离，默认为 2 像素；
+width/height：设置尺寸。
+bgcolor：背景颜色
+-----
+tr：表示表格的一行；
+td：表示一个单元格；
+th：表示表头单元格，汇聚众加粗；
+thead：表格的头部区域，表示范围要比th大；
+tbody：表格的主体区域。
+-->
+<table align="center" border="2" cellpadding="20" cellspacing="0" height="200">
+    <tr>
+        <td>姓名</td>
+        <td>性别</td>
+        <td>年龄</td>
+    </tr>
+    <tr>
+        <td>张三</td>
+        <td>男</td>
+        <td>10</td>
+    </tr>
+    <tr>
+        <td>李四</td>
+        <td>女</td>
+        <td>11</td>
+    </tr>
+    <tr>
+        <td>总计</td>
+        <td colspan="2">888</td>
+    </tr>
+</table>
+
+<!--列表-->
+<!--
+[无序列表]
+参数：
+type：编号类型，有“disc”“circle”“square”
+-->
+<ul>
+    <li>条目1</li>
+    <li>条目2</li>
+    <li>条目3</li>
+</ul>
+<!--
+[有序列表]
+参数：
+type：编号类型，有“A”“I”“i”
+start：编号起点
+-->
+<ol>
+    <li>条目1</li>
+    <li>条目2</li>
+    <li>条目3</li>
+</ol>
+
+<!--表单（信息输入）-->
+<form action="index.html">
+    在这里填入内容
+</form>
+<!--文本框-->
+<input type="text">
+<!--密码框-->
+<input type="password">
+<!--单选框-->
+性别:
+<input type="radio" name="sex">男
+<input type="radio" name="sex" checked="checked">女
+<!--复选框-->
+爱好:
+<input type="checkbox"> 吃饭 <input type="checkbox"> 睡觉 <input type="checkbox">
+打游戏
+<!--普通按钮-->
+<input type="button" value="我是个按钮">
+<!--提交按钮-->
+<form action="test.html">
+    <input type="text" name="username">
+    <input type="submit" value="提交">
+</form>
+<!--清空按钮-->
+<form action="test.html">
+    <input type="text" name="username">
+    <input type="submit" value="提交">
+    <input type="reset" value="清空">
+</form>
+<!--选择文件-->
+<input type="file">
+
+<!--
+[下拉菜单]
+option：选项，北京和上海两个选项是并列关系
+selected="selected"：默认选中
+（如果不指定默认选项，第一个选项作为默认选项）
+-->
+<select>
+    <option>北京</option>
+    <option selected="selected">上海</option>
+</select>
+
+<!--带框文本区域-->
+<p>
+    <textarea rows="3" cols="50">  
+        这是一个文本区域
+    </textarea>
+</p>
+
+<!--
+[分割出下一个新区域]
+可为每一块内联区域定义名称，于是在 css 文件中便可以针对特定的内联区域设置样式。
+html文件中：<div class="<class name>">...</div>
+css文件中：.<class name> {...}
+-->
+<div class="路人甲">
+    <span>路人甲</span>
+    <span>路人甲</span>
+    <span>路人甲</span>
+</div>
+<div class="路人乙">
+    <span>路人乙</span>
+    <span>路人乙</span>
+    <span>路人乙</span>
+</div>
+<div class="路人丙">
+    <span>路人丙</span>
+    <span>路人丙</span>
+    <span>路人丙</span>
+</div>
+
+<!--水平分割线-->
+<hr>
+
+<div>
+    <code>计算机代码python</code>
+</div>
+
+</html>

@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+/* 通用设置 */
+* {
+    /* 元素之间的距离 */
+    /*margin: 20px;*/
+    
+    /* 边框间距（可设1到4个参数） */
+    padding: 10px;
+    
+    /* 设置加粗(normal/bold) */
+    /*font-weight: bold;*/
+    
+    /* 设置斜体(normal/italic) */
+    /*font-style: italic;*/
+    
+    /* 行高（行间距） */
+    /*line-height: 20px;*/
+    
+    /* 文本对齐方式 */
+    /*text-align: center;*/
+
+    /*color: yellow;*/
+}
+
+body {
+    /*设置背景插图*/
+    /*background-image: url("./img/bgfig.png");*/
+    /*设置渐变背景*/
+    background: linear-gradient(to right, #FC0, #F60)
+}
+
+h1 {
+    color: blue;
+    font-size: 50px;
+}
