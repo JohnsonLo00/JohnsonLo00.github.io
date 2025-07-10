@@ -1,0 +1,197 @@
+@charset "utf-8";
+
+/* 通用设置 */
+/* * { */
+    /* 元素之间的距离 */
+    /*margin: 20px;*/
+    
+    /* 边框间距（可设1到4个参数） */
+    /* padding: 10px; */
+    
+    /* 设置加粗(normal/bold) */
+    /*font-weight: bold;*/
+    
+    /* 设置斜体(normal/italic) */
+    /*font-style: italic;*/
+    
+    /* 行高（行间距） */
+    /*line-height: 20px;*/
+    
+    /* 文本对齐方式 */
+    /*text-align: center;*/
+
+    /*color: yellow;*/
+/* } */
+
+/* ----------------- body ----------------- */
+
+body.homepage {
+    /*设置背景插图*/
+    /*background-image: url("./img/bgfig.png");*/
+    /*设置渐变背景*/
+    /* background: linear-gradient(to right, #FC0, #F60) */
+    margin-left: 30px;
+    font-size: 18pt;
+    line-height: 2;
+}
+
+/* =========================================== */
+
+
+/* ----------------- 通用 ----------------- */
+
+/* ----- 分割线 ----- */
+hr.line {
+  border: none;
+  border-top: 3px double gray;
+  color: gray;
+  height: 5px;
+}
+
+hr.bar {
+    width:80%;
+    margin:0 auto;
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+/* ==================== */
+
+/* ----- 引用块 ----- */
+blockquote {
+    margin:16px 0;
+    line-height:1.6;
+    font-size:inherit;
+    padding:10px 10px;
+    color:#5c5c5c;
+    background-color:#f0f0f0;
+    border-left:7px solid #d6d6d6;
+}
+
+blockquote>:first-child {
+    margin-top:0;
+}
+
+blockquote>:last-child {
+    margin-bottom:0;
+}
+/* ==================== */
+
+/* ----- 代码块 ----- */
+.code-block {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    width: 100%; /* 如果希望代码块在较小屏幕上也能自适应，可以设置宽度为100% */
+    box-sizing: border-box; /* 确保内边距和边框被包含在宽度内 */
+}
+
+.code-title {
+    background-color: gray; /* 标题栏背景颜色 */
+    color: white; /* 标题栏文字颜色 */
+    padding: 10px 15px; /* 标题栏内边距 */
+    font-size: 16px; /* 标题栏文字大小 */
+    font-weight: bold;
+    border-top-left-radius: 10px; /* 左上角圆角 */
+    border-top-right-radius: 10px; /* 右上角圆角 */
+}
+
+.code-content {
+    /* background-color: #2d2d2d; */
+    overflow-x: auto;
+    /* 不需要设置max-width，因为它应该继承自.code-block */
+    /* 但是可以确保pre标签的宽度是100%，以匹配其父容器 */
+    pre[class*="language-"] {
+        width: 100%; /* 确保pre标签的宽度与其父容器一致 */
+        margin: 0; /* 移除默认的外边距 */
+    }
+}
+
+.copy-button {
+    margin-left: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: whitesmoke;
+    color: gray;
+    border: none;
+    border-radius: 5px;
+}
+
+.copy-button:hover {
+    /* background-color: whitesmoke; */
+    background-color: black;
+    color: white;
+}
+/* ============================ */
+
+/* ----- 返回顶部按钮 ----- */
+.back-to-top-btn {
+    position: fixed; /* 固定位置 */
+    bottom: 20px; /* 距离页面底部20px */
+    right: 20px; /* 距离页面左侧20px，即左下角 */
+    width: 80px; /* 按钮宽度 */
+    height: 80px; /* 按钮高度，设置为圆形需要宽高相等 */
+    border: none; /* 无边框 */
+    border-radius: 50%; /* 圆形按钮 */
+    background: radial-gradient(circle, gray, white); /* 按钮背景色 */
+    color: white; /* 文字颜色 */
+    font-size: 16px; /* 文字大小 */
+    cursor: pointer; /* 鼠标指针样式 */
+    display: flex; /* 使用flex布局使文字居中 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    transition: font-weight 0.3s; /* 文字粗细过渡效果 */
+}
+
+.back-to-top-btn:hover {
+    font-weight: bold; /* 鼠标悬停时文字变为粗体 */
+}
+/* ============================== */
+
+/* =========================================== */
+
+
+/* ---------------- 定制 ---------------- */
+
+/* ----- homepage系列 ----- */
+.homepage-name {
+    color: blue;
+}
+
+.homepage-logo {
+    margin-top: 50px;
+    img {
+        width: 300px;
+        height: auto;
+    }
+}
+
+.homepage-bottom-block {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+}
+
+.bottom-block {
+    /* position:fixed; */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: white;
+
+    /* 以下三行：设置文本对齐方式为水平居中、垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    /* 为水平栏添加轻微的阴影效果，使其更加立体 */
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+}
+/* ======================== */
+
+/* =================================== */
