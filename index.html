@@ -26,10 +26,14 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/autoloader/prism-autoloader.min.js"></script>
 
         <!-- KaTeX -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
         <!--  -->
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"></script>
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+        <!--  -->
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
     </head>
 
     <body class="homepage">
@@ -59,9 +63,7 @@
         </blockquote>
 
         <div>
-
-        <p>To begin with, <span class="katex">\mathbb{Z}_2</span> is a gentleman.</p>
-
+        <p>To begin with, \(\mathbb{Z}_2\) is a gentleman.</p>
         <p>
             My research intersts are currently in:
             <ul>
@@ -119,12 +121,6 @@
         </div>
 
         <!-- ------ 后置scripts ------ -->
-        <script>
-            document.querySelectorAll('.katex').forEach(el => {
-                const isDisplayMode = el.tagName === 'DIV';
-                katex.render(el.textContent, el, { displayMode: isDisplayMode });
-            });
-        </script>
         <!-- ====================== -->
     <!-- ======================================= -->
 
