@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <!-- main css -->
+        <link rel="stylesheet" type="text/css" href="../../../styles/mystyle.css" />
+        <script src="../../../scripts/myscript.js" defer></script>
+        <link rel="stylesheet" type="text/css" href="../../../styles/notes-and-essays-style.css" />
+        <script src="../../../scripts/notes-and-essays-scripts.js" defer></script>
+        <title>From Congruence to Quotient
+        Group</title>
+
+        <!-- code highlighting -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/themes/prism.min.css" rel="stylesheet" />
+        <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/themes/prism-tomorrow.min.css" rel="stylesheet" /> -->
+        <!--  -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-c.min.js"></script> <!-- C --> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-cpp.min.js"></script> <!-- C++ --> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-go.min.js"></script> <!-- Go -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-latex.min.js"></script> <!-- LaTeX -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-python.min.js"></script> <!-- Python -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-rust.min.js"></script> <!-- Rust -->
+        <!-- <script src=""></script> -->
+        <!--  -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+        <!-- KaTeX -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+        <!--  -->
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+        <!--  -->
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+    </head>
+
+    <body>
+
+        <nav class="navbar">
+            <a style="cursor: pointer" class="nav-button" id="ToCButton">ToC</a>
+            <span class="divider"></span>
+            <a href="../index.html#tag-notes-and-essays" class="nav-button">Homepage</a>
+            <span class="divider"></span>
+            <a href="../mathematics-list.html" class="nav-button">Return</a>
+        </nav>
+
+        <div class="top-blank-area"></div>
+
+        <nav class="sidebar" id="sidebar">
+            <ul>
+                <li class="blank-item"> </li> <!--空白条目，作为目录的header-->
+                <li><a href="#notations">Notations</a></li>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#group-composed-of-residue-classes">Group Composed of Residue Classes</a></li>
+                <li><a href="#direct-construction-of-quotient-group">Direct Construction of Quotient Group</a></li>
+                <li><a href="#construction-of-quotient-group-from-the-view-of-congruence">Construction of Quotient Group from the View of Congruence</a></li>
+                <li><a href="#conclusion">Conclusion</a></li>
+            </ul>
+        </nav>
+
+
+        <h1>From Congruence to Quotient
+        Group</h1>
+
+        <p><em>--- to use the view of number theory to underestand abstract
+        algebra</em></p>
+
+        <p>Hank Lo | Done Mar 1st, 2023 | Updated Jul 13, 2025</p>
+        
+        <hr class="line"/>
+
+        <h2 id="notations">Notations</h2>
+
+        <ul>
+        <li>\(aRb\): \(a\) follows the <strong>relationship</strong>
+        \(R\) with \(b\).</li>
+        <li>\(a\equiv b\pmod{m}\):\(a\) is <strong>congruent</strong> to \(b\) modulo \(m\).</li>
+        <li>\(G\): a <strong>group</strong>.</li>
+        <li>\(\cdot~\): operation over group in
+        general. Unless special explanations, we denote \(a\cdot b\) by \(ab\).</li>
+        <li>\(aS\): Given a set \(S\), \(aS=\{as \mid
+        s\in S\}\).</li>
+        <li>\(H\leq G\): Given a group \(G\), \(H\) is the
+        <strong>subgroup</strong> of \(G\).</li>
+        <li>\(H\triangleleft G\): Giving a group
+        \(G\), \(H\)
+        is the <strong>normal subgroup</strong> of \(G\).</li>
+        <li>\(G/H\): A <strong>quotient
+        group</strong> with its normal subgroup \(H\).</li>
+        </ul>
+        
+        <h2 id="introduction">Introduction</h2>
+        
+        <p>There is one saying from my friend:</p>
+        
+        <blockquote>
+        almost properties of number
+        theory can be explained by the views of abstract algebra.
+        </blockquote>
+
+        <p>Well, it makes sense sometimes. \(\mathbb{Z}_m=\{ \overline{0}, \overline{1},
+        \cdots, \overline{m-1} \mid m \text{ is a prime} \}\) is an additive quotient
+        group as such with various algebra properties. However, some of algebra
+        structure with 'abstract' features can be also understood and ultilized
+        by using the actions in number theory. In this note, we are going to
+        explore the construction of quotient group from views of integer
+        congruence.</p>
+
+        <h2 id="group-composed-of-residue-classes">Group Composed of Residue
+        Classes</h2>
+        
+        <p>Given integers \(a\) and \(b\), \(a\) is
+        congruent to \(b\) modulo \(m\), i.e. \(a\equiv
+        b\pmod{m}\), if \((a-b) | m\). Knowing
+        that congruence is an equivalent relationship, we can contstruct
+        equivalent classes about this relationship. Here we have the form of
+        arbitrary equivalent class, called <em>residue class</em>, as</p>
+        \[
+        \overline{n}=\{k\in \mathbb{Z} \mid k\equiv n\pmod{m} \}.
+        \]
+
+        <p>Therefore, we have quotient set \(\{
+        \overline{0}, \overline{1}, \cdots, \overline{m-1} \}\), which is
+        denoted by \(\mathbb{Z}_m\).</p>
+
+        <p>Knowing that</p>
+        \[
+        a\equiv b\pmod{m}, c\equiv d\pmod{m}\Rightarrow (a+c)\equiv
+        (b+d)\pmod{m},
+        \]
+        <p>we can extend it to</p>
+        \[
+        \overline{a}\equiv \overline{b}\pmod{m},
+        \overline{c}\equiv \overline{d}\pmod{m}\Rightarrow
+        \overline{a}+\overline{c}\equiv
+        \overline{b}+\overline{d}\pmod{m}.\]
+        
+        Moreover, \(a+c\) also comes from one of residue classes for sure, which can be denoted by \(\overline{a+c}\), i.e. \(\overline{a}+\overline{c} = \overline{a+c}\). so we can define operation \(+\) over \(\mathbb{Z}_m\), which is also closed over \(\mathbb{Z}_m\).</p>
+
+        <p>It is apparent that \(0+a\equiv
+        a\pmod{m}\) for arbitrary \(a\) in
+        \(\mathbb{Z}\), so we have \(\overline{0}+\overline{a}\equiv\overline{a}\pmod{m}\), which indicates that \(\overline{0}\) is the identity element of \(\mathbb{Z}_m\).</p>
+
+        <p>As for arbitrary residue class, taking \(\overline{a}\) as example, there exist \(\overline{-a}\) such that \(\overline{a}+\overline{-a}=\overline{a+(-a)}=\overline{0}\).
+        So the existence of inverse element holds for every residue class in \(\mathbb{Z}_m\).</p>
+
+        <p>The associativity of the operation above is also apparent. Now we can say that \(\mathbb{Z}_m\) is a group with operation \(+\), i.e. an additive group.</p>
+
+        <h2 id="direct-construction-of-quotient-group">Direct Construction of
+        Quotient Group</h2>
+
+        <p>In this section We construct the quotient group with direct definition and basic properties.</p>
+
+        <p><strong>Definition</strong>. Given a group \(G\) and its two subsets \(A\) and \(B\), we
+        say that \(A\) is <em>conjugate</em> to
+        \(B\), if there exist \(g\) in \(G\) such
+        that \(gAg^{-1}=B\).</p>
+
+        <p>Furthermore, \(A\) and \(B\) can be restricted to \(A=B\), which reflacts on the self-conjugate relationship.</p>
+
+        <p><strong>Definition</strong>. Given a group \(G\) and its one subset \(H\), we say that \(H\) is self-conjugate, if there exist \(g\) in \(G\) such that \(gHg^{-1}=H\).</p>
+
+        <p>The set compose of these \(g\)s related
+        to <em>self-conjugate</em> relationship can be explored more.</p>
+
+        <p><strong>Definition</strong>. Given a group \(G\) and its one subset \(H\), the <em>normalizer</em> of \(H\) is denoted by</p>
+        \[
+        N_G(H)=\{ g\in G \mid gHg^{-1}=H \}.
+        \]
+
+        <p>Then with two more conditions, \(H\) can
+        become a normal subgroup.</p>
+
+        <p><strong>Definition</strong>. The subgroup \(H\) of \(G\) is the <em>normal subgroup</em> of \(G\), denoted by \(H\triangleleft G\), if \(H\) is self-conjugate for every element of
+        \(G\), i.e. \(\forall g\in G, gHg^{-1}=H\).</p>
+        
+        <p>As for normal subgroup \(H\), we have the following properties:</p>
+        
+        <p><strong>Theorem</strong>. Given a group \(G\) and that \(H\triangleleft G\), the following conditions are equivalent mutually: </p>
+        <ol>
+            <li>\(H\triangleleft G\);</li>
+            <li>\(\forall g\in G, gH=Hg\);</li>
+            <li>\(N_G(H)=G\).</li>
+        </ol>
+
+        <p>It can be used to determine the existence of normal subgroup.</p>
+
+        <p>Now we combine all normal groups into a set. Before we introduce the formal definition of quotient group, it can be told that \(\{gH\}\) is just the form of quotient group. Thus we have to find out features belonging to group, i.e., operation, indentity element and inverse element.</p>
+
+        <p>To begin with, we use a property of subgroup. It shows with the operation bewteen sets.</p>
+
+        <p><strong>Theorem</strong>. Given a group \(G\) and its non-empty subset \(H\), we have that \(H\leq G \Rightarrow HH=H\), where \(HH=\{ab \mid a,b\in H\}\).</p>
+        
+        <p><strong>Proof</strong>. It is apparent that \(HH\subseteq H\). Moreover, for every element in
+        \(H\), denoted by \(h\), we have \(h=(h\cdot h)\cdot h^{-1}\), where \(h\cdot h\in H\) and \(h^{-1}\in H\). so \(H\subseteq HH\) holds. Thus \(HH=H\) holds. \(\blacksquare\)</p>
+        
+        <blockquote>
+        <p><strong>Remark</strong>. The “\(\Leftarrow\)” holds when \(G\) is finite.</p>
+        </blockquote>
+        
+        <p>Let's consider sets like \(gH\) with
+        that \(g\in G\) and that \(H\) is a normal subgroup. Knowing that for
+        arbitrary \(a,b\in G\),</p>
+        \[
+        aH\cdot bH = (aH)(Hb) = a(HH)b = aHb = a(bH) = abH.
+        \]
+        <p>We can let \(\cdot\) become the operation over \(gH\) and it is closed.</p>
+
+        <p>Let \(e\) be the identity element of
+        \(G\). we have</p>
+        \[
+        eH\cdot aH = (ea)H = aH,
+        \]
+        <p>so \(eH\) is the identity element
+        of \(\{gH\}\).</p>
+        
+        <p>Similarly, for arbitrary \(gH\), we can
+        gain its inverse element \(g^{-1}H\).</p>
+
+        <p>To sum up, \(\{gH\}\) is a group. It is
+        called quotient group with normal group \(H\) and is denoted by \(G/H\).</p>
+
+        <h2
+        id="construction-of-quotient-group-from-the-view-of-congruence">Construction
+        of Quotient Group from the View of Congruence</h2>
+
+        <p>From the process of constructing a quotient group we can find some properties that are similar to these of congruence in number theory. Let's compare these properties one by one.</p>
+
+        <blockquote>
+        <p>It can be recalled that In integer congruence, \(a\equiv b\pmod{m} \Leftrightarrow (a-b)|m\). With that \((a-b)|m\Leftrightarrow (a-b)\in m\mathbb{Z}\), we can say that \(a\) follows the congruence relationship with \(b\) if and only if \(a-b\) is in \(m\mathbb{Z}\), i.e. \(\{mk | k\in\mathbb{Z}\}\). Knowing that \(-b\) is the inverse element of \(b\) in \(\mathbb{Z}_m\), let's define a similar
+        relationship in general group.</p>
+        </blockquote>
+
+        <p>To begin with, given a group \(G\) and a
+        corresponding subgroup \(H\), a
+        relationship over the group \(G\) is
+        introduced, i.e.,</p>
+        \[
+        a,b\in G, aRb \Leftrightarrow ab^{-1}\in H.
+        \]
+
+        <p><strong>Theorem</strong>. \(R\) is an
+        equivalent relationship. And for arbitrary element \(a\) in G, the corresponding equivalent class can be denoted by \(Ha\).</p>
+
+        <p><strong>Proof</strong>. With \(a\cdot
+        a^{-1}=e\in H\), i.e. \(aRa^{-1}\),
+        the reflexivity of \(R\) holds. As for
+        \(ab^{-1}\in H\) and \(H\leq G\), we have \((ab^{-1})^{-1}=ba^{-1}\in H\). Thus \(bRa\), which indicates the symmetry of \(R\) holds. Knowing that \(aRb\) and that \(bRc\), i.e. \(ab^{-1}\in H\) and \(bc^{-1}\in H\), we have \((ab^{-1})\cdot (bc^{-1})=ac^{-1}\in H\), i.e. \(aRc\), indicating that the transitivity of \(R\) holds. In conclusion, \(R\) is an equivalent relationship.</p>
+
+        <p>Denoting \(ab^{-1}\) by \(h\), i.e. \(h=ab^{-1}\in H\), we can say that the equivalent class \(b\) comes from is identical to that \(a\) comes from. Moreover, from \(h=ab^{-1}\) we can gain \(b=h^{-1}a\). With the arbitrariness of \(h\) in \(H\), we can say that \(b\in Ha\), which indicates that the equivalent class \(a\) comes from is \(Ha\). \(\blacksquare\)</p>
+
+        <blockquote>
+        <p>We can find that the form of \(H\) is similar to \(m\mathbb{Z}\), so two comparasion can be found as follows:</p>
+        
+        <ul>
+            <li>\(ab^{-1}\in H\) and \(a-b\in m\mathbb{Z}\),</li>
+            <li>\(Ha\) and \(m\mathbb{Z}+b\)</li>
+        </ul>
+
+        <p>Knowing that \(\mathbb{Z}=\bigcup\limits_{r\in\Lambda}\left(m\mathbb{Z}+b\right)\),
+        we can gain a similar partition of \(G\).</p>
+        </blockquote>
+
+        <p>With \(R\), there is one partition of
+        group \(G\) showed as</p>
+        \[
+        G = \bigcup\limits_{a\in\Lambda}Ha.
+        \]
+
+        <blockquote>
+        <p>In number theory, it is apparent that \(m\mathbb{Z}=\mathbb{Z}m\), whereas it is not the case for general group. So we have to add restriction to \(H\), which indicates the function of normal subgroup.</p>
+        </blockquote>
+        
+        <p><strong>Definition</strong>. Given a group \(G\) and its one subset \(H\), we say that \(H\) is a normal subgroup, if \(gH=Hg\) holds for arbitrary \(g\) in \(G\).</p>
+
+        <blockquote>
+        <p>From \(gH=Hg\) we can have \(gHg^{-1}=H\), which indicates that \(H\) is self-conjugate.</p>
+
+        <p>Now we analyse the action of general group that is similar to the operation of residue class in number theory.</p>
+
+        <p>With that \(m\mathbb{Z}+a=\overline{a}, m\mathbb{Z}+b=\overline{b}\) we have \(\overline{a}+\overline{b}=\overline{a+b}\). It is feasible to find the corresponding operation for general group. Now it comes true with normal subgroup.</p>
+        </blockquote>
+
+        <p><strong>Definition</strong>. Given a group \(G\) and its one normal subgroup \(H\), it holds that</p>
+        \[
+        \forall a,b\in G, aH\cdot bH = (aH)(Hb) = a(HH)b = aHb = a(bH) = abH.
+        \]
+
+        <p>We can also say that \(aH\) and \(bH\) follow congruence relationship if \(aH\cdot bH=(ab)H\).</p>
+
+        <p>Those feature of quotient set \(\{gH\}\) to become a group is similar as above. So we can say that \(\{gH\}\) is a quotient group modulo \(H\) and it can be denoted by \(G/H\).</p>
+
+        <blockquote>
+        <p>By the way, \(\mathbb{Z}_m=\mathbb{Z}/m\mathbb{Z}\).</p>
+        </blockquote>
+        
+        <p>the integer congruence can be extented to the method on finding the partition of \(\mathbb{Z}\), and we can perform modular operation on \(\mathbb{Z}\), where the modulus is \(m\mathbb{Z}\). Every partitioned set can be distinguished through this modular operation, which means the function of \(r\) in \(m\mathbb{Z}+r\). Now the \(G/H\) does so with correspondingly similar
+        properties.</p>
+
+        <h2 id="conclusion">Conclusion</h2>
+        
+        <p>In this note we introduce integer congruence in number theory, along with the construction of \(\mathbb{Z}_m\) as a group. Then we construct the general quotient group \(G/H\) by using the method on constructing \(\mathbb{Z}_m\), where the congruence relationship matters a lot in the context. Following such a approach, we can also solve the construction of quotient ring, although more conditions are required.</p>
+
+        <!-- ----- 底部配置 ----- -->
+        <button id="backToTopBtn" class="back-to-top-btn"><img src="../../../img/icons/uparrow.svg" alt="Top"></button>
+
+        <hr class="line" style="margin-top: 100px" />
+        <!-- ====================== -->
+    </body>
+
+</html>

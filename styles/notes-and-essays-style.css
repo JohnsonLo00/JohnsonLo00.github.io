@@ -1,0 +1,150 @@
+
+/* 顶部空白 */
+.top-blank-area {
+    height: 50px;
+}
+
+/* -------------------- 侧边目录 -------------------- */
+
+/* 目录触发按钮的样式 */
+.toc-button {
+    position: fixed;
+    top: 20px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, gray, white);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* 目录触发按钮的内部图标（目前是个实心圆） */
+.toc-button-icon {
+    width: 30px;
+    height: auto;
+    /*background: white;*/
+    /*border-radius: 50%;*/
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Initially hidden */
+    width: 250px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease-in-out;
+    z-index: 999;
+    overflow-y: auto; /* 允许内容垂直滚动 */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+
+.sidebar li:hover {
+    background: #f4f4f4;
+}
+
+.sidebar li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    width: 100%;
+}
+
+.sidebar li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    box-shadow: inset 5px 0 10px rgba(0, 0, 0, 0.1), inset -5px 0 10px rgba(255, 255, 255, 0.5);
+    z-index: -1;
+    transform: skewX(-10deg);
+}
+
+/* 空白条目样式 */
+.blank-item {
+    height: 50px;
+}
+
+/* ================================================== */
+
+
+/* ----------------- 顶部导航栏 ----------------- */
+
+/* 设置导航栏样式 */
+.navbar {
+    display: flex;
+    justify-content: flex-end;/* space-around或flex-end */
+    align-items: center;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    box-shadow: 0 0 #999, 0 15px 20px #666; /* 圆边凸起特效 */
+    padding: 10px 20px; /*若按钮分散分布，则第一个数值设为0*/
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* 设置按钮样式 */
+.nav-button {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-left: 10px; /* 为第一个按钮前的空白（如果有需要）和分隔符留出空间 */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* 第一个按钮不需要左侧外边距 */
+.navbar .nav-button:first-child {
+    margin-left: 0;
+}
+
+/* 为最后一个按钮添加额外的右侧外边距 */
+.navbar .nav-button:last-child {
+    margin-right: 30px;
+}
+
+/* 竖直分割线样式 */
+.divider {
+    width: 2px; /* 指定长度 */
+    height: 20px; /* 与按钮高度相匹配或根据需要调整 */
+    background-color: white; /* 分割线颜色 */
+    margin: 0 10px; /* 分割线两侧的间距 */
+}
+
+/* 隐藏最后一个分割线 */
+.navbar .divider:last-child {
+    display: none;
+}
+
+/* 鼠标悬停时按钮变色 */
+.nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    font-weight: bold;
+}
+
+/* 点击按钮时的样式（可选，因为点击后页面会跳转，通常看不到这个效果） */
+.nav-button:active {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* ================================================== */

@@ -2,10 +2,13 @@
 
 <html>
     <head>
-        <!-- main css文件 -->
-        <link rel="stylesheet" type="text/css" href="../styles/mystyle.css" />
-        <script src="../scripts/myscript.js" defer></script>
-        <title>Notes</title>
+        <!-- main css -->
+        <link rel="stylesheet" type="text/css" href="../../../styles/mystyle.css" />
+        <script src="../../../scripts/myscript.js" defer></script>
+        <link rel="stylesheet" type="text/css" href="../../../styles/notes-and-essays-style.css" />
+        <script src="../../../scripts/notes-and-essays-scripts.js" defer></script>
+
+        <title>Tests</title>
 
         <!-- code highlighting -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/themes/prism.min.css" rel="stylesheet" />
@@ -21,18 +24,61 @@
         <!-- <script src=""></script> -->
         <!--  -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/autoloader/prism-autoloader.min.js"></script>
-        
-        <!-- KaTeX CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
 
-        <!-- KaTeX JS -->
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"></script>
+        <!-- KaTeX -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+        <!--  -->
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+        <!--  -->
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
     </head>
 
     <body>
 
-        <h1>This is the note of PROJECTs</h1>
+        <nav class="navbar">
+            <a style="cursor: pointer" class="nav-button" id="ToCButton">ToC</a>
+            <span class="divider"></span>
+            <a href="../../../index.html#tag-notes-and-essays" class="nav-button">Homepage</a>
+            <span class="divider"></span>
+            <a href="../algorithms-list.html" class="nav-button">Return</a>
+        </nav>
+
+        <div class="top-blank-area"></div>
+
+        <nav class="sidebar" id="sidebar">
+            <ul>
+                <li class="blank-item"> </li> <!--空白条目，作为目录的header-->
+                <li><a href="#section1">Sec 1</a></li>
+                <ul>
+                    <li>Sec 1-1</li>
+                    <li><a href="#section1-2">Sec 1-2</a></li>
+                </ul>
+                <li><a href="#section2">Sec 2</a></li>
+                <li><a href="#section3">Sec 3</a></li>
+                <li><a href="#section4">Sec 4</a></li>
+                <li><a href="#section5">Sec 5</a></li>
+                <li><a href="#section5">Sec 5</a></li>
+                <li><a href="#section5">Sec 5</a></li>
+                <li><a href="#section5">Sec 5</a></li>
+                <li><a href="#section5">Sec 5</a></li>
+                <li><a href="#section5">Sec 5</a></li>
+                <li><a href="#section5">Sec 5</a></li>
+                <li><a href="#section5">Sec 5</a></li>
+                <li><a href="#section5">Sec 5</a></li>
+                <li><a href="#section5">Sec 5</a></li>
+                <li><a href="#section5">Sec 5</a></li>
+                <li><a href="#section5">Sec 5</a></li>
+                <li><a href="#section5">Sec 5</a></li>
+                <li><a href="#section5">Sec 5</a></li>
+                <li><a href="#section5">Sec 6</a></li>
+            </ul>
+        </nav>
+
+
+        <h1>Just Tests</h1>
 
         <div class="code-block">
             <div class="code-title">
@@ -110,6 +156,11 @@ fn main() {
             </div>
         </div>
 
+        <!-- ----- 底部配置 ----- -->
+        <button id="backToTopBtn" class="back-to-top-btn"><img src="../../../img/icons/uparrow.svg" alt="Top"></button>
+
+        <hr class="line" style="margin-top: 100px" />
+        <!-- ====================== -->
     </body>
 
 </html>
