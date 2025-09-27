@@ -171,6 +171,7 @@ blockquote>:last-child {
 }
 
 .homepage-bottom-block {
+    font-size: large;
     height: 100px;
     display: flex;
     justify-content: center;
