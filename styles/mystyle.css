@@ -128,7 +128,7 @@ blockquote>:last-child {
 /* ----- 返回顶部按钮 ----- */
 .back-to-top-btn {
     position: fixed; /* 固定位置 */
-    bottom: 20px; /* 距离页面底部20px */
+    bottom: 80px; /* 距离页面底部20px */
     right: 20px; /* 距离页面左侧20px，即左下角 */
     width: 80px; /* 按钮宽度 */
     height: 80px; /* 按钮高度，设置为圆形需要宽高相等 */
